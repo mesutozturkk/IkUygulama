@@ -1,0 +1,27 @@
+﻿@model IkUygulama.Models.Views.UnvanModel
+
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Detay</h2>
+
+<div>
+    <h4>Unvan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Unvan.UnvanAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Unvan.UnvanAd)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Detay", "Detay", new { id=Model.Unvan.UnvanId }) |
+    @Html.ActionLink("Listeye geri dön", "Unvan")
+</p>

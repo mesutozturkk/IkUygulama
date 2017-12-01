@@ -1,0 +1,143 @@
+﻿@model IkUygulama.Models.Views.PersonelModel
+
+@{
+    ViewBag.Title = "Guncelle";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Guncelle</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h2>Tarih</h2>
+        <p id="tarih"></p>
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-inline">
+            <div class="form-group">
+
+                @Html.LabelFor(model => model.Personel.PersonelAd, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Personel.PersonelAd, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Personel.PersonelAd, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Personel.PersonelSoyad, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Personel.PersonelSoyad, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Personel.PersonelSoyad, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Personel.Maas, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Personel.Maas, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Personel.Maas, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="container d-inline-flex">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Personel.Bolum.BolumAd, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Personel.BolumId, Model.BolumForDropDown)
+                    @Html.ValidationMessageFor(model => model.Personel.BolumId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Personel.Egitim.EgitimAd, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Personel.EgitimId, Model.EgitimForDropDown)
+                    @Html.ValidationMessageFor(model => model.Personel.EgitimId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Personel.Unvan.UnvanAd, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Personel.UnvanId, Model.UnvanForDropDown)
+                    @Html.ValidationMessageFor(model => model.Personel.UnvanId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Personel.Ilce.Il.IlAd, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Personel.Ilce.IlId, Model.IlForDropDown, htmlAttributes: new { id = "ddl_iller" })
+                    @Html.ValidationMessageFor(model => model.Personel.Ilce.IlId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Personel.Ilce.IlceAd, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Personel.IlceId, Model.IlceForDropDown, htmlAttributes: new { id = "ddl_ilceler" })
+                    @Html.ValidationMessageFor(model => model.Personel.IlceId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="container d-inline-flex">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Personel.DogumTarihi, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Personel.DogumTarihi, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Personel.DogumTarihi, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Personel.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Personel.Email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Personel.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Personel.TelNo, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Personel.TelNo, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Personel.TelNo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Güncelle" class="btn btn-default" />
+        </div>
+    </div>
+
+}
+
+<div>
+    @Html.ActionLink("Listeye Geri Dön", "Personel")
+</div>
+<script>
+    var url = "/Personel/TarihAl";
+    $.get(url, null, function (data) {
+        $("#tarih").html(data);
+
+    });
+
+</script>
+<script>
+    $(function () {
+        $("#ddl_iller").change(function () {// il change
+            var il_id = $(this).val();
+            var uri = "/Personel/GetIlceler/" + il_id;
+            $("#ddl_ilceler").load(uri);
+        });
+
+        var il_id = $("#ddl_iller").val();  // form load
+        var uri = "/Personel/GetIlceler/" + il_id;
+        $("#ddl_ilceler").load(uri);
+    });
+</script>

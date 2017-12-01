@@ -1,0 +1,27 @@
+﻿@model IkUygulama.Models.Views.IlModel
+
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Detay</h2>
+
+<div>
+    <h4>İl</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Il.IlAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Il.IlAd)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Detay", "Detay", new { id=Model.Il.IlId }) |
+    @Html.ActionLink("Listeye geri dön", "Il")
+</p>

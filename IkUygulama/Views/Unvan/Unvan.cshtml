@@ -1,0 +1,43 @@
+﻿@model IkUygulama.Models.Views.UnvanModel
+
+@{
+    ViewBag.Title = "Unvan";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Unvan</h2>
+
+<p>
+    @Html.ActionLink("Yeni Giriş", "Ekle")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Unvan.UnvanId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Unvan.UnvanAd)
+        </th>
+        <th>Güncelle</th>
+        <th>Detay</th>
+        <th>Sil</th>
+        
+    </tr>
+
+@foreach (var item in Model.list) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnvanId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnvanAd)
+        </td>
+        <td>
+            @Html.ActionLink("Güncelle", "Guncelle", new { id=item.UnvanId }) |
+        </td>
+        <td>@Html.ActionLink("Detay", "Detay", new { id = item.UnvanId }) |</td>
+        <td>@Html.ActionLink("Sil", "Sil", new { id = item.UnvanId })</td>
+    </tr>
+}
+
+</table>

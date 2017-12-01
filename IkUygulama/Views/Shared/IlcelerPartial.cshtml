@@ -1,0 +1,5 @@
+﻿@model IkUygulama.Models.Views.IlceModel
+@foreach (var item in Model.list)
+{
+  <option value="@item.IlceId">@item.IlceAd</option>
+}

@@ -1,0 +1,34 @@
+﻿@model IkUygulama.Models.Views.IlceModel
+
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Detay</h2>
+
+<div>
+    <h4>Ilce</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Ilce.IlceAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ilce.IlceAd)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Ilce.Il.IlAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ilce.Il.IlAd)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Detay", "Detay", new { id=Model.Ilce.IlceId }) |
+    @Html.ActionLink("Listeye geri dön", "Ilce")
+</p>

@@ -1,0 +1,57 @@
+﻿@model IkUygulama.Models.Views.PersonelModel
+
+@{
+    ViewBag.Title = "Personel";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Personel</h2>
+
+<p>
+    @Html.ActionLink("Yeni Giriş", "Ekle")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Personel.PersonelId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Personel.PersonelAd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Personel.PersonelSoyad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Personel.Unvan.UnvanAd)
+        </th>
+        
+       
+        <th>Güncelle</th>
+        <th>Detay</th>
+        <th>Sil</th>
+    </tr>
+
+@foreach (var item in Model.list) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PersonelID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PersonelAd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PersonelSoyad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Unvan)
+        </td>
+      
+        <td>
+            @Html.ActionLink("Güncelle", "Guncelle", new { id = item.PersonelID }) |
+        </td>
+        <td>@Html.ActionLink("Detay", "Detay", new { id = item.PersonelID }) |</td>
+        <td>@Html.ActionLink("Sil", "Sil", new { id = item.PersonelID })</td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,44 @@
+﻿@model IkUygulama.Models.Views.EgitimModel
+
+@{
+    ViewBag.Title = "Egitim";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Egitim</h2>
+
+<p>
+    @Html.ActionLink("Yeni Giriş", "Ekle")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Egitim.EgitimId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Egitim.EgitimAd)
+        </th>
+
+       
+        <th>Güncelle</th>
+        <th>Detay</th>
+        <th>Sil</th>
+    </tr>
+
+@foreach (var item in Model.list) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EgitimId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EgitimAd)
+        </td>
+        <td>
+            @Html.ActionLink("Güncelle", "Guncelle", new { id = item.EgitimId }) |
+        </td>
+        <td>@Html.ActionLink("Detay", "Detay", new { id = item.EgitimId }) |</td>
+        <td>@Html.ActionLink("Sil", "Sil", new { id = item.EgitimId })</td>
+    </tr>
+}
+
+</table>
