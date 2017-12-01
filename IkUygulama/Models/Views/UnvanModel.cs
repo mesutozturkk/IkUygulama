@@ -10,5 +10,6 @@ namespace IkUygulama.Models.Views
     {
         public IEnumerable<Unvan> list { get; set; }
         public Unvan Unvan { get; set; }
+        //
     }
 }
